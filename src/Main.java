@@ -19,15 +19,15 @@ public class Main {
             System.out.println("Установите версию приложения для iOS по ссылке");
         }
     }
-    public static void deliveryWillTake(int deliveryDistance, int deliveryDays) {
+    public static int deliveryWillTake(int deliveryDistance) {
+        int deliveryDays = 1;
         int interval = 40;
         int startinterval = 20;
         if (deliveryDistance <= startinterval) {
             deliveryDays = 1;
         } else {
             deliveryDays = deliveryDays + (int) Math.ceil((deliveryDistance - startinterval) / (double) interval);
-        }
-        System.out.println("Потребуется дней: " + deliveryDays);
+        } return deliveryDays;
     }
     public static void main(String[] args) {
         // Задание 1
@@ -39,8 +39,9 @@ public class Main {
         printToClientOpS(clientOpS, clientDeviceYear);
         // Задание 3
         int deliveryDistance = 95;
-        int deliveryDays = 1;
-        deliveryWillTake(deliveryDistance, deliveryDays);
+        int total = deliveryWillTake(deliveryDistance);
+        System.out.println("Потребуется дней: " + total);
+
     }
 
 
